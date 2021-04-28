@@ -1,0 +1,18 @@
+info:
+  service-id: microcms-sdk-generator-demo
+  base-path: ./microcms/schemas/
+
+apis:
+  - name: users
+    custom-fields:
+      twitter: sns
+      github: sns
+
+  - name: articles
+    relations:
+      author: users
+
+  - name: setting
+    form: object
+    relations:
+      featuredArticles: articles

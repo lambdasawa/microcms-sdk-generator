@@ -1,0 +1,949 @@
+components:
+  parameters:
+    articles-fields-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#h7462d83de4)'
+      explode: false
+      in: query
+      name: fields
+      schema:
+        items:
+          enum:
+          - title
+          - content
+          - category
+          - tag
+          - deadline
+          - author
+          type: string
+        type: array
+    articles-orders-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#hf1af2f632c)'
+      explode: false
+      in: query
+      name: orders
+      schema:
+        items:
+          enum:
+          - title
+          - -title
+          - content
+          - -content
+          - category
+          - -category
+          - tag
+          - -tag
+          - deadline
+          - -deadline
+          - author
+          - -author
+          type: string
+          x-enum-varnames:
+          - title
+          - titleDescending
+          - content
+          - contentDescending
+          - category
+          - categoryDescending
+          - tag
+          - tagDescending
+          - deadline
+          - deadlineDescending
+          - author
+          - authorDescending
+        type: array
+    content-id-path:
+      in: path
+      name: content-id
+      required: true
+      schema:
+        type: string
+    depth-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#h30fce9c966)'
+      in: query
+      name: depth
+      schema:
+        type: number
+    draft-key-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#hab2c474417)'
+      in: query
+      name: draftKey
+      schema:
+        type: string
+    filters-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#hdebbdc8e86)'
+      explode: false
+      in: query
+      name: filters
+      schema:
+        items:
+          type: string
+        type: array
+    ids-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#h6b992e0fe4)'
+      explode: false
+      in: query
+      name: ids
+      schema:
+        items:
+          type: string
+        type: array
+    limit-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#h4cd61f9fa1)'
+      in: query
+      name: limit
+      schema:
+        type: number
+    offset-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#h41838110ca)'
+      in: query
+      name: offset
+      schema:
+        type: number
+    q-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#ha8abec0b2f)'
+      in: query
+      name: q
+      schema:
+        type: string
+    setting-fields-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#h7462d83de4)'
+      explode: false
+      in: query
+      name: fields
+      schema:
+        items:
+          enum:
+          - featuredArticles
+          - articlesPerPage
+          type: string
+        type: array
+    setting-orders-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#hf1af2f632c)'
+      explode: false
+      in: query
+      name: orders
+      schema:
+        items:
+          enum:
+          - featuredArticles
+          - -featuredArticles
+          - articlesPerPage
+          - -articlesPerPage
+          type: string
+          x-enum-varnames:
+          - featuredArticles
+          - featuredArticlesDescending
+          - articlesPerPage
+          - articlesPerPageDescending
+        type: array
+    users-fields-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#h7462d83de4)'
+      explode: false
+      in: query
+      name: fields
+      schema:
+        items:
+          enum:
+          - name
+          - email
+          - bio
+          - icon
+          - birthday
+          - is_sns_public
+          - twitter
+          - github
+          type: string
+        type: array
+    users-orders-querystring:
+      description: '[doc](https://document.microcms.io/content-api/get-list-contents#hf1af2f632c)'
+      explode: false
+      in: query
+      name: orders
+      schema:
+        items:
+          enum:
+          - name
+          - -name
+          - email
+          - -email
+          - bio
+          - -bio
+          - icon
+          - -icon
+          - birthday
+          - -birthday
+          - is_sns_public
+          - -is_sns_public
+          - twitter
+          - -twitter
+          - github
+          - -github
+          type: string
+          x-enum-varnames:
+          - name
+          - nameDescending
+          - email
+          - emailDescending
+          - bio
+          - bioDescending
+          - icon
+          - iconDescending
+          - birthday
+          - birthdayDescending
+          - is_sns_public
+          - is_sns_publicDescending
+          - twitter
+          - twitterDescending
+          - github
+          - githubDescending
+        type: array
+  responses:
+    articles-list:
+      content:
+        application/json:
+          schema:
+            properties:
+              contents:
+                items:
+                  $ref: '#/components/schemas/articles'
+                type: array
+              limit:
+                type: number
+              offset:
+                type: number
+              totalCount:
+                type: number
+            required:
+            - totalCount
+            - offset
+            - limit
+            - contents
+            type: object
+      description: ""
+    setting-list:
+      content:
+        application/json:
+          schema:
+            properties:
+              contents:
+                items:
+                  $ref: '#/components/schemas/setting'
+                type: array
+              limit:
+                type: number
+              offset:
+                type: number
+              totalCount:
+                type: number
+            required:
+            - totalCount
+            - offset
+            - limit
+            - contents
+            type: object
+      description: ""
+    users-list:
+      content:
+        application/json:
+          schema:
+            properties:
+              contents:
+                items:
+                  $ref: '#/components/schemas/users'
+                type: array
+              limit:
+                type: number
+              offset:
+                type: number
+              totalCount:
+                type: number
+            required:
+            - totalCount
+            - offset
+            - limit
+            - contents
+            type: object
+      description: ""
+  schemas:
+    articles:
+      properties:
+        author:
+          $ref: '#/components/schemas/users'
+        category:
+          description: カテゴリ
+          items:
+            enum:
+            - programming
+            - game
+            type: string
+          type: array
+        content:
+          description: 本文
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        deadline:
+          description: 締切日時
+          format: date-time
+          type: string
+        id:
+          type: string
+        publishedAt:
+          format: date-time
+          type: string
+        revisedAt:
+          format: date-time
+          type: string
+        tag:
+          description: タグ
+          items:
+            enum:
+            - typescript
+            - golang
+            - java
+            type: string
+          type: array
+        title:
+          description: タイトル
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - revisedAt
+      - title
+      - content
+      - category
+      - tag
+      - deadline
+      - author
+      type: object
+    articles-create-request:
+      properties:
+        author:
+          description: 著者
+          type: string
+        category:
+          description: カテゴリ
+          items:
+            enum:
+            - programming
+            - game
+            type: string
+          type: array
+        content:
+          description: 本文
+          type: string
+        deadline:
+          description: 締切日時
+          format: date-time
+          type: string
+        tag:
+          description: タグ
+          items:
+            enum:
+            - typescript
+            - golang
+            - java
+            type: string
+          type: array
+        title:
+          description: タイトル
+          type: string
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - revisedAt
+      - title
+      - content
+      - category
+      - tag
+      - deadline
+      - author
+      type: object
+    articles-list:
+      properties:
+        contents:
+          items:
+            $ref: '#/components/schemas/articles'
+          type: array
+        limit:
+          type: number
+        offset:
+          type: number
+        totalCount:
+          type: number
+      required:
+      - totalCount
+      - offset
+      - limit
+      - contents
+      type: object
+    articles-patch-request:
+      properties:
+        author:
+          description: 著者
+          type: string
+        category:
+          description: カテゴリ
+          items:
+            enum:
+            - programming
+            - game
+            type: string
+          type: array
+        content:
+          description: 本文
+          type: string
+        deadline:
+          description: 締切日時
+          format: date-time
+          type: string
+        tag:
+          description: タグ
+          items:
+            enum:
+            - typescript
+            - golang
+            - java
+            type: string
+          type: array
+        title:
+          description: タイトル
+          type: string
+      type: object
+    common-update-result:
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+    setting:
+      properties:
+        articlesPerPage:
+          description: 1ページあたりの記事数
+          type: number
+        createdAt:
+          format: date-time
+          type: string
+        featuredArticles:
+          description: 特集記事
+          items:
+            $ref: '#/components/schemas/articles'
+          type: array
+        id:
+          type: string
+        publishedAt:
+          format: date-time
+          type: string
+        revisedAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - revisedAt
+      - featuredArticles
+      - articlesPerPage
+      type: object
+    setting-create-request:
+      properties:
+        articlesPerPage:
+          description: 1ページあたりの記事数
+          type: number
+        featuredArticles:
+          description: 特集記事
+          items:
+            type: string
+          type: array
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - revisedAt
+      - featuredArticles
+      - articlesPerPage
+      type: object
+    setting-list:
+      properties:
+        contents:
+          items:
+            $ref: '#/components/schemas/setting'
+          type: array
+        limit:
+          type: number
+        offset:
+          type: number
+        totalCount:
+          type: number
+      required:
+      - totalCount
+      - offset
+      - limit
+      - contents
+      type: object
+    setting-patch-request:
+      properties:
+        articlesPerPage:
+          description: 1ページあたりの記事数
+          type: number
+        featuredArticles:
+          description: 特集記事
+          items:
+            type: string
+          type: array
+      type: object
+    users:
+      properties:
+        bio:
+          description: 自己紹介
+          type: string
+        birthday:
+          description: 誕生日
+          format: date
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        email:
+          description: 'メールアドレス: メールアドレスです。任意入力です。example.com である必要があります。'
+          pattern: '[0-9a-z]+@example.com'
+          type: string
+        github:
+          $ref: '#/components/schemas/users-sns'
+        icon:
+          description: アイコン
+          properties:
+            height:
+              type: number
+            url:
+              type: string
+            width:
+              type: number
+          type: object
+        id:
+          type: string
+        is_sns_public:
+          description: SNSを公開するか？
+          type: boolean
+        name:
+          description: 名前
+          maxLength: 30
+          minLength: 1
+          type: string
+        publishedAt:
+          format: date-time
+          type: string
+        revisedAt:
+          format: date-time
+          type: string
+        twitter:
+          $ref: '#/components/schemas/users-sns'
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - revisedAt
+      - name
+      - email
+      - bio
+      - birthday
+      - is_sns_public
+      type: object
+    users-create-request:
+      properties:
+        bio:
+          description: 自己紹介
+          type: string
+        birthday:
+          description: 誕生日
+          format: date
+          type: string
+        email:
+          description: 'メールアドレス: メールアドレスです。任意入力です。example.com である必要があります。'
+          pattern: '[0-9a-z]+@example.com'
+          type: string
+        github:
+          $ref: '#/components/schemas/users-sns'
+        is_sns_public:
+          description: SNSを公開するか？
+          type: boolean
+        name:
+          description: 名前
+          maxLength: 30
+          minLength: 1
+          type: string
+        twitter:
+          $ref: '#/components/schemas/users-sns'
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - publishedAt
+      - revisedAt
+      - name
+      - email
+      - bio
+      - birthday
+      - is_sns_public
+      type: object
+    users-list:
+      properties:
+        contents:
+          items:
+            $ref: '#/components/schemas/users'
+          type: array
+        limit:
+          type: number
+        offset:
+          type: number
+        totalCount:
+          type: number
+      required:
+      - totalCount
+      - offset
+      - limit
+      - contents
+      type: object
+    users-patch-request:
+      properties:
+        bio:
+          description: 自己紹介
+          type: string
+        birthday:
+          description: 誕生日
+          format: date
+          type: string
+        email:
+          description: 'メールアドレス: メールアドレスです。任意入力です。example.com である必要があります。'
+          pattern: '[0-9a-z]+@example.com'
+          type: string
+        github:
+          $ref: '#/components/schemas/users-sns'
+        is_sns_public:
+          description: SNSを公開するか？
+          type: boolean
+        name:
+          description: 名前
+          maxLength: 30
+          minLength: 1
+          type: string
+        twitter:
+          $ref: '#/components/schemas/users-sns'
+      type: object
+    users-sns:
+      properties:
+        fieldId:
+          enum:
+          - sns
+          type: string
+        url:
+          description: URL
+          type: string
+        userId:
+          description: ユーザID
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey
+    GlobalDraftKeyAuth:
+      in: header
+      name: X-Global-Draft-Key
+      type: apiKey
+    WriteApiKeyAuth:
+      in: header
+      name: X-Write-API-Key
+      type: apiKey
+info:
+  title: microcms-sdk-generator-demo
+  version: 1.0.0
+openapi: 3.0.0
+paths:
+  /articles:
+    get:
+      operationId: search-articles
+      parameters:
+      - $ref: '#/components/parameters/draft-key-querystring'
+      - $ref: '#/components/parameters/limit-querystring'
+      - $ref: '#/components/parameters/offset-querystring'
+      - $ref: '#/components/parameters/articles-orders-querystring'
+      - $ref: '#/components/parameters/q-querystring'
+      - $ref: '#/components/parameters/ids-querystring'
+      - $ref: '#/components/parameters/articles-fields-querystring'
+      - $ref: '#/components/parameters/filters-querystring'
+      - $ref: '#/components/parameters/depth-querystring'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/articles-list'
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      - GlobalDraftKeyAuth: []
+      tags:
+      - articles
+    post:
+      operationId: create-articles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/articles-create-request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common-update-result'
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - articles
+  /articles/{content-id}:
+    delete:
+      operationId: delete-articles
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      responses:
+        "202":
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - articles
+    get:
+      operationId: fetch-articles
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      - $ref: '#/components/parameters/draft-key-querystring'
+      - $ref: '#/components/parameters/articles-fields-querystring'
+      - $ref: '#/components/parameters/depth-querystring'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/articles'
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - articles
+    patch:
+      operationId: update-articles
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/articles-patch-request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common-update-result'
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - articles
+    put:
+      operationId: put-articles
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/articles-create-request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common-update-result'
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - articles
+  /setting:
+    get:
+      operationId: fetch-setting
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setting'
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - setting
+    patch:
+      operationId: update-setting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/setting-patch-request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common-update-result'
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - setting
+  /users:
+    get:
+      operationId: search-users
+      parameters:
+      - $ref: '#/components/parameters/draft-key-querystring'
+      - $ref: '#/components/parameters/limit-querystring'
+      - $ref: '#/components/parameters/offset-querystring'
+      - $ref: '#/components/parameters/users-orders-querystring'
+      - $ref: '#/components/parameters/q-querystring'
+      - $ref: '#/components/parameters/ids-querystring'
+      - $ref: '#/components/parameters/users-fields-querystring'
+      - $ref: '#/components/parameters/filters-querystring'
+      - $ref: '#/components/parameters/depth-querystring'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users-list'
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      - GlobalDraftKeyAuth: []
+      tags:
+      - users
+    post:
+      operationId: create-users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users-create-request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common-update-result'
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - users
+  /users/{content-id}:
+    delete:
+      operationId: delete-users
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      responses:
+        "202":
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - users
+    get:
+      operationId: fetch-users
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      - $ref: '#/components/parameters/draft-key-querystring'
+      - $ref: '#/components/parameters/users-fields-querystring'
+      - $ref: '#/components/parameters/depth-querystring'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - users
+    patch:
+      operationId: update-users
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users-patch-request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common-update-result'
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - users
+    put:
+      operationId: put-users
+      parameters:
+      - $ref: '#/components/parameters/content-id-path'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users-create-request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/common-update-result'
+          description: ""
+      security:
+      - WriteApiKeyAuth: []
+      tags:
+      - users
+servers:
+- url: https://microcms-sdk-generator-demo.microcms.io/api/v1/

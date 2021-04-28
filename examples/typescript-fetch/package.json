@@ -1,0 +1,21 @@
+{
+  "name": "typeescript-fetch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "demo": "ts-node demo/demo.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^15.0.1",
+    "@types/node-fetch": "^2.5.10",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}

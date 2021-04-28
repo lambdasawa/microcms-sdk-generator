@@ -1,0 +1,55 @@
+{
+  "apiFields": [
+    {
+      "idValue": "HAvilYF8P",
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "required": true,
+      "isUnique": false
+    },
+    {
+      "fieldId": "content",
+      "name": "本文",
+      "kind": "richEditor",
+      "required": true
+    },
+    {
+      "fieldId": "category",
+      "name": "カテゴリ",
+      "kind": "select",
+      "required": true,
+      "selectItems": [
+        { "id": "Kb91N8sOO", "value": "programming" },
+        { "id": "BbLDNwzgV", "value": "game" }
+      ],
+      "multipleSelect": false
+    },
+    {
+      "fieldId": "tag",
+      "name": "タグ",
+      "kind": "select",
+      "required": true,
+      "selectItems": [
+        { "id": "CJMKNytXU", "value": "typescript" },
+        { "id": "m1uG5Z5fL", "value": "golang" },
+        { "id": "4X7T2OJPH", "value": "java" }
+      ],
+      "multipleSelect": false
+    },
+    {
+      "fieldId": "deadline",
+      "name": "締切日時",
+      "kind": "date",
+      "required": true,
+      "dateFormat": false
+    },
+    {
+      "fieldId": "author",
+      "name": "著者",
+      "kind": "relation",
+      "required": true
+    }
+  ],
+  "customFields": []
+}

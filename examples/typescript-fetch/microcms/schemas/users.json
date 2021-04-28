@@ -1,0 +1,88 @@
+{
+  "apiFields": [
+    {
+      "idValue": "iK2V7CV5P",
+      "fieldId": "name",
+      "name": "名前",
+      "kind": "text",
+      "required": true,
+      "textSizeLimitValidation": { "textSize": { "min": 1, "max": 30 } },
+      "isUnique": false
+    },
+    {
+      "fieldId": "email",
+      "name": "メールアドレス",
+      "kind": "text",
+      "description": "メールアドレスです。任意入力です。example.com である必要があります。",
+      "required": true,
+      "patternMatchValidation": {
+        "regexp": { "pattern": "[0-9a-z]+@example.com", "flags": null }
+      },
+      "isUnique": true
+    },
+    {
+      "fieldId": "bio",
+      "name": "自己紹介",
+      "kind": "textArea",
+      "required": true
+    },
+    {
+      "fieldId": "icon",
+      "name": "アイコン",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "birthday",
+      "name": "誕生日",
+      "kind": "date",
+      "required": true,
+      "dateFormat": true
+    },
+    {
+      "fieldId": "is_sns_public",
+      "name": "SNSを公開するか？",
+      "kind": "boolean",
+      "required": true
+    },
+    {
+      "fieldId": "twitter",
+      "name": "Twitter",
+      "kind": "custom",
+      "required": false,
+      "customFieldCreatedAt": "2021-05-03T08:25:30.145Z"
+    },
+    {
+      "fieldId": "github",
+      "name": "GitHub",
+      "kind": "custom",
+      "required": false,
+      "customFieldCreatedAt": "2021-05-03T08:25:30.145Z"
+    }
+  ],
+  "customFields": [
+    {
+      "createdAt": "2021-05-03T08:25:30.145Z",
+      "fieldId": "sns",
+      "name": "SNS",
+      "fields": [
+        {
+          "idValue": "bQWlRlB9D",
+          "fieldId": "userId",
+          "name": "ユーザID",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "bnb0XxMZj",
+          "fieldId": "url",
+          "name": "URL",
+          "kind": "text"
+        }
+      ],
+      "position": [["bQWlRlB9D", "bnb0XxMZj"]],
+      "updatedAt": "2021-05-03T08:25:30.145Z",
+      "viewerGroup": "vQ4"
+    }
+  ]
+}

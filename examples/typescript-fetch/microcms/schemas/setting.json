@@ -1,0 +1,18 @@
+{
+  "apiFields": [
+    {
+      "idValue": "CcngnLyYe",
+      "fieldId": "featuredArticles",
+      "name": "特集記事",
+      "kind": "relationList",
+      "required": true
+    },
+    {
+      "fieldId": "articlesPerPage",
+      "name": "1ページあたりの記事数",
+      "kind": "number",
+      "required": true
+    }
+  ],
+  "customFields": []
+}
