@@ -344,7 +344,8 @@ export enum FetchUsersFieldsEnum {
     Birthday = 'birthday',
     IsSnsPublic = 'is_sns_public',
     Twitter = 'twitter',
-    Github = 'github'
+    Github = 'github',
+    OtherSnsList = 'otherSNSList'
 }
 /**
     * @export
@@ -367,6 +368,8 @@ export enum SearchUsersOrdersEnum {
     twitterDescending = '-twitter',
     github = 'github',
     githubDescending = '-github',
+    otherSNSList = 'otherSNSList',
+    otherSNSListDescending = '-otherSNSList',
     id = 'id',
     idDescending = '-id',
     publishedAt = 'publishedAt',
@@ -390,5 +393,6 @@ export enum SearchUsersFieldsEnum {
     Birthday = 'birthday',
     IsSnsPublic = 'is_sns_public',
     Twitter = 'twitter',
-    Github = 'github'
+    Github = 'github',
+    OtherSnsList = 'otherSNSList'
 }

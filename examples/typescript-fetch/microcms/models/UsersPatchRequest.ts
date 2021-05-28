@@ -63,6 +63,12 @@ export interface UsersPatchRequest {
      */
     name?: string;
     /**
+     * その他のSNSのリスト
+     * @type {Array<UsersSns>}
+     * @memberof UsersPatchRequest
+     */
+    otherSNSList?: Array<UsersSns>;
+    /**
      * 
      * @type {UsersSns}
      * @memberof UsersPatchRequest
@@ -86,6 +92,7 @@ export function UsersPatchRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'github': !exists(json, 'github') ? undefined : UsersSnsFromJSON(json['github']),
         'isSnsPublic': !exists(json, 'is_sns_public') ? undefined : json['is_sns_public'],
         'name': !exists(json, 'name') ? undefined : json['name'],
+        'otherSNSList': !exists(json, 'otherSNSList') ? undefined : ((json['otherSNSList'] as Array<any>).map(UsersSnsFromJSON)),
         'twitter': !exists(json, 'twitter') ? undefined : UsersSnsFromJSON(json['twitter']),
     };
 }
@@ -105,6 +112,7 @@ export function UsersPatchRequestToJSON(value?: UsersPatchRequest | null): any {
         'github': UsersSnsToJSON(value.github),
         'is_sns_public': value.isSnsPublic,
         'name': value.name,
+        'otherSNSList': value.otherSNSList === undefined ? undefined : ((value.otherSNSList as Array<any>).map(UsersSnsToJSON)),
         'twitter': UsersSnsToJSON(value.twitter),
     };
 }

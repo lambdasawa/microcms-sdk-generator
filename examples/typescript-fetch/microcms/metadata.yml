@@ -7,6 +7,7 @@ apis:
     custom-fields:
       twitter: sns
       github: sns
+      otherSNSList: sns
 
   - name: articles
     relations:

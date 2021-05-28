@@ -85,6 +85,12 @@ export interface Users {
      */
     name: string;
     /**
+     * その他のSNSのリスト
+     * @type {Array<UsersSns>}
+     * @memberof Users
+     */
+    otherSNSList?: Array<UsersSns>;
+    /**
      * 
      * @type {Date}
      * @memberof Users
@@ -129,6 +135,7 @@ export function UsersFromJSONTyped(json: any, ignoreDiscriminator: boolean): Use
         'id': json['id'],
         'isSnsPublic': json['is_sns_public'],
         'name': json['name'],
+        'otherSNSList': !exists(json, 'otherSNSList') ? undefined : ((json['otherSNSList'] as Array<any>).map(UsersSnsFromJSON)),
         'publishedAt': (new Date(json['publishedAt'])),
         'revisedAt': (new Date(json['revisedAt'])),
         'twitter': !exists(json, 'twitter') ? undefined : UsersSnsFromJSON(json['twitter']),
@@ -154,6 +161,7 @@ export function UsersToJSON(value?: Users | null): any {
         'id': value.id,
         'is_sns_public': value.isSnsPublic,
         'name': value.name,
+        'otherSNSList': value.otherSNSList === undefined ? undefined : ((value.otherSNSList as Array<any>).map(UsersSnsToJSON)),
         'publishedAt': (value.publishedAt.toISOString()),
         'revisedAt': (value.revisedAt.toISOString()),
         'twitter': UsersSnsToJSON(value.twitter),

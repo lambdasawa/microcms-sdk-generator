@@ -6,7 +6,12 @@
       "name": "名前",
       "kind": "text",
       "required": true,
-      "textSizeLimitValidation": { "textSize": { "min": 1, "max": 30 } },
+      "textSizeLimitValidation": {
+        "textSize": {
+          "min": 1,
+          "max": 30
+        }
+      },
       "isUnique": false
     },
     {
@@ -16,7 +21,10 @@
       "description": "メールアドレスです。任意入力です。example.com である必要があります。",
       "required": true,
       "patternMatchValidation": {
-        "regexp": { "pattern": "[0-9a-z]+@example.com", "flags": null }
+        "regexp": {
+          "pattern": "[0-9a-z]+@example.com",
+          "flags": null
+        }
       },
       "isUnique": true
     },
@@ -58,6 +66,14 @@
       "kind": "custom",
       "required": false,
       "customFieldCreatedAt": "2021-05-03T08:25:30.145Z"
+    },
+    {
+      "fieldId": "otherSNSList",
+      "name": "その他のSNSのリスト",
+      "kind": "repeater",
+      "customFieldCreatedAtList": [
+        "2021-05-03T08:25:30.145Z"
+      ]
     }
   ],
   "customFields": [
@@ -80,7 +96,12 @@
           "kind": "text"
         }
       ],
-      "position": [["bQWlRlB9D", "bnb0XxMZj"]],
+      "position": [
+        [
+          "bQWlRlB9D",
+          "bnb0XxMZj"
+        ]
+      ],
       "updatedAt": "2021-05-03T08:25:30.145Z",
       "viewerGroup": "vQ4"
     }
