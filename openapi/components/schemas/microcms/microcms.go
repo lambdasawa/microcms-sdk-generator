@@ -176,6 +176,14 @@ func buildProperty(api *metadata.API, field microcms.APIField, option Option) (*
 	case "custom":
 		ref = &openapi3.SchemaRef{Ref: fmt.Sprintf("#/components/schemas/%s-%s", api.Name, api.CustomFields[field.FieldID])}
 
+	case "repeater":
+		ref = &openapi3.SchemaRef{
+			Value: &openapi3.Schema{
+				Type:  "array",
+				Items: &openapi3.SchemaRef{Ref: fmt.Sprintf("#/components/schemas/%s-%s", api.Name, api.CustomFields[field.FieldID])},
+			},
+		}
+
 	case "relation":
 		if option.UseIDInsteadOfRef {
 			ref = &openapi3.SchemaRef{Value: &openapi3.Schema{Type: "string"}}
