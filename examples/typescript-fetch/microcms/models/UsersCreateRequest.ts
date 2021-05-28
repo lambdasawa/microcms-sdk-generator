@@ -63,6 +63,12 @@ export interface UsersCreateRequest {
      */
     name: string;
     /**
+     * その他のSNSのリスト
+     * @type {Array<UsersSns>}
+     * @memberof UsersCreateRequest
+     */
+    otherSNSList?: Array<UsersSns>;
+    /**
      * 
      * @type {UsersSns}
      * @memberof UsersCreateRequest
@@ -86,6 +92,7 @@ export function UsersCreateRequestFromJSONTyped(json: any, ignoreDiscriminator: 
         'github': !exists(json, 'github') ? undefined : UsersSnsFromJSON(json['github']),
         'isSnsPublic': json['is_sns_public'],
         'name': json['name'],
+        'otherSNSList': !exists(json, 'otherSNSList') ? undefined : ((json['otherSNSList'] as Array<any>).map(UsersSnsFromJSON)),
         'twitter': !exists(json, 'twitter') ? undefined : UsersSnsFromJSON(json['twitter']),
     };
 }
@@ -105,6 +112,7 @@ export function UsersCreateRequestToJSON(value?: UsersCreateRequest | null): any
         'github': UsersSnsToJSON(value.github),
         'is_sns_public': value.isSnsPublic,
         'name': value.name,
+        'otherSNSList': value.otherSNSList === undefined ? undefined : ((value.otherSNSList as Array<any>).map(UsersSnsToJSON)),
         'twitter': UsersSnsToJSON(value.twitter),
     };
 }
