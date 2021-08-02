@@ -52,6 +52,7 @@ func buildSchema(api *metadata.API, schema microcms.Schema) (*openapi3.SchemaRef
 		IncludeID:         true,
 		IncludeTimestamps: true,
 		IncludeMedia:      true,
+		IncludeFile:       true,
 		ForceOptional:     false,
 	})
 }
