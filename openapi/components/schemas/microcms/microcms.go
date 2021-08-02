@@ -13,6 +13,7 @@ type (
 		IncludeID            bool
 		IncludeTimestamps    bool
 		IncludeMedia         bool
+		IncludeFile          bool
 		IncludeCustomFieldID bool
 		ForceOptional        bool
 		UseIDInsteadOfRef    bool
@@ -169,6 +170,20 @@ func buildProperty(api *metadata.API, field microcms.APIField, option Option) (*
 					"url":    &openapi3.SchemaRef{Value: &openapi3.Schema{Type: "string"}},
 					"height": &openapi3.SchemaRef{Value: &openapi3.Schema{Type: "number"}},
 					"width":  &openapi3.SchemaRef{Value: &openapi3.Schema{Type: "number"}},
+				},
+			},
+		}
+
+	case "file":
+		if !option.IncludeFile {
+			return nil, nil
+		}
+
+		ref = &openapi3.SchemaRef{
+			Value: &openapi3.Schema{
+				Type: "object",
+				Properties: openapi3.Schemas{
+					"url":    &openapi3.SchemaRef{Value: &openapi3.Schema{Type: "string"}},
 				},
 			},
 		}
