@@ -33,7 +33,11 @@ func BuildFrom(meta metadata.Metadata, schemaMap map[string]microcms.Schema) (sc
 			return openapi3.Schemas{}, err
 		}
 
-		customSchemas, err := mcms.BuildCustomProperties(api, schema, mcms.Option{IncludeCustomFieldID: true})
+		customSchemas, err := mcms.BuildCustomProperties(api, schema, mcms.Option{
+			IncludeCustomFieldID: true,
+			IncludeMedia:         true,
+			IncludeFile:          true,
+		})
 		if err != nil {
 			return openapi3.Schemas{}, err
 		}
